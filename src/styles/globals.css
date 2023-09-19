@@ -11,3 +11,33 @@ body {
 }
 
 
+.containerSprite {
+  width: 151px; 
+  height: 151px; 
+  overflow: hidden;
+  scale: 35%;
+}
+
+.spriteAnimation{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18240px; 
+  height: 151px; 
+  background-image: url('/cars.png');
+  transform: translate( -50% , -50%) scale(-50%) ; 
+
+  left: -1px;
+  animation: play-sprite  19s  steps(60) infinite; 
+  z-index: 999;
+}
+
+@keyframes play-sprite {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-18240px) ;
+      }
+}
