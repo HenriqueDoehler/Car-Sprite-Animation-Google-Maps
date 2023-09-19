@@ -45,7 +45,6 @@ export default function MyMap() {
         map.setCenter({ lat: coords.latitude, lng: coords.longitude });
         setCurrentCoordsIndex((prevIndex) => prevIndex + 1);
       }
-      console.log("Current Coords Index:", currentCoordsIndex);
     }, 1000);
     return () => clearInterval(interval);
   }, [map, selectedCourseIndex, currentCoordsIndex]);

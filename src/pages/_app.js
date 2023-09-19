@@ -10,10 +10,6 @@ export function useGlobalState() {
 
 export function GlobalStateProvider({ children }) {
   const [selectedCourseIndex, setSelectedCourseIndex] = useState(0);
-  const [markerPosition, setMarkerPosition] = useState(null);
-  const [iconRotation, setIconRotation] = useState(0);
-  const [currentRoute, setCurrentRoute] = useState([]);
-  const [mapCenter, setMapCenter] = useState(null);
   const [firstGpsPoint, setFirstGpsPoint] = useState();
 
   return (
@@ -21,14 +17,6 @@ export function GlobalStateProvider({ children }) {
       value={{
         selectedCourseIndex,
         setSelectedCourseIndex,
-        markerPosition,
-        setMarkerPosition,
-        iconRotation,
-        setIconRotation,
-        currentRoute,
-        setCurrentRoute,
-        mapCenter,
-        setMapCenter,
         firstGpsPoint,
         setFirstGpsPoint,
       }}
