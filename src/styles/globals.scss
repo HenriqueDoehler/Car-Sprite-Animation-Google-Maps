@@ -1,0 +1,53 @@
+$box-sizing: border-box;
+$zero: 0;
+$max-width: 100vw;
+$overflow-x: hidden;
+$container-width: 151px;
+$container-height: 151px;
+$container-scale: 35%;
+$sprite-width: 18240px;
+$sprite-height: 151px;
+$sprite-url: '/cars.png';
+$sprite-animation-time: 19s;
+$sprite-animation-steps: 60;
+$sprite-z-index: 999;
+
+* {
+  box-sizing: $box-sizing;
+  padding: $zero;
+  margin: $zero;
+}
+
+html, body {
+  max-width: $max-width;
+  overflow-x: $overflow-x;
+}
+
+.containerSprite {
+  width: $container-width;
+  height: $container-height;
+  overflow: hidden;
+  scale: $container-scale;
+}
+
+.spriteAnimation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $sprite-width;
+  height: $sprite-height;
+  background-image: url($sprite-url);
+  transform: translate(-50%, -50%) scale(-50%);
+  left: -1px;
+  animation: play-sprite $sprite-animation-time steps($sprite-animation-steps) infinite;
+  z-index: $sprite-z-index;
+}
+
+@keyframes play-sprite {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-$sprite-width);
+  }
+}

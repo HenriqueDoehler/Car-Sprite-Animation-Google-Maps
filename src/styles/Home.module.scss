@@ -1,0 +1,19 @@
+$padding-main: 6rem;
+$min-height-main: 100vh;
+$width-map: 100vw;
+$height-map: 100vh;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: $padding-main;
+  min-height: $min-height-main;
+}
+
+.map {
+  display: flex;
+  width: $width-map;
+  height: $height-map;
+}
