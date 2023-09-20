@@ -1,5 +1,6 @@
 import "@/styles/globals.scss";
 import "@/i18n/";
+import { Analytics } from "@vercel/analytics/react";
 
 import React, { createContext, useContext, useState } from "react";
 
@@ -34,6 +35,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <GlobalStateProvider>
       <Component {...pageProps} />
+      <Analytics />
     </GlobalStateProvider>
   );
 }
