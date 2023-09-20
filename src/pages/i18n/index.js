@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import { createRoot } from "react-dom/client";
 import ptBrJson from "./translations/ptBr.json";
 import enJson from "./translations/en.json";
 
