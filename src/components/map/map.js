@@ -7,7 +7,6 @@ import Marker from "../marker/marker";
 const mapId = process.env.NEXT_PUBLIC_MAP_ID;
 
 export default function MyMap() {
-  // console.log(gpsData);
   const ref = useRef();
   const { firstGpsPoint, selectedCourseIndex, setRotationAngle } =
     useGlobalState();
