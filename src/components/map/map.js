@@ -13,6 +13,7 @@ export default function MyMap() {
   const [currentCoords, setCurrentCoords] = useState(firstGpsPoint);
   const [currentCoordsIndex, setCurrentCoordsIndex] = useState(0);
   const [polylineCoordinates, setPolylineCoordinates] = useState([]);
+  const [path, setPath] = useState(null);
   const [map, setMap] = useState();
 
   const mapOptions = {
@@ -25,24 +26,32 @@ export default function MyMap() {
   };
 
   useEffect(() => {
-    setCurrentCoordsIndex(0);
-  }, [selectedCourseIndex]);
-
-  useEffect(() => {
     if (!map) {
       setMap(new window.google.maps.Map(ref.current, mapOptions));
     } else {
-      const Path = new window.google.maps.Polyline({
-        path: polylineCoordinates,
-        geodesic: true,
-        strokeColor: "#FF0000",
-        strokeOpacity: 1.0,
-        strokeWeight: 2,
-      });
-
-      Path.setMap(map);
+      if (!path) {
+        const newPath = new window.google.maps.Polyline({
+          path: polylineCoordinates,
+          geodesic: true,
+          strokeColor: "#FF0000",
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+        });
+        newPath.setMap(map);
+        setPath(newPath);
+      } else {
+        path.setPath(polylineCoordinates);
+      }
     }
   }, [map, polylineCoordinates]);
+
+  useEffect(() => {
+    setCurrentCoordsIndex(0);
+    setPolylineCoordinates([]);
+    if (path) {
+      path.setPath([]);
+    }
+  }, [selectedCourseIndex]);
 
   useEffect(() => {
     const interval = setInterval(() => {
