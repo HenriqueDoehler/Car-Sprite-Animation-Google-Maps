@@ -31,6 +31,10 @@ ou
 
 Agora o servidor de desenvolvimento será iniciado e você poderá acessar através do link http://localhost:3000/.
 
+Deploy Vercel :
+https://car-sprite-animation-google-maps-n1zj1z9l3-henriquedoehler.vercel.app/
+link ativo temporariamente
+
 Funcionalidades
 Seleção de Rota
 Na página principal, você pode selecionar a rota desejada através de um dropdown. Cada rota é associada a um conjunto de dados GPS.
