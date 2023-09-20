@@ -1,6 +1,8 @@
   {
     "translation": {
-        "selecione": "Selecione Rota"
-       
+        "selecione": "Google Mapas Histórico de localização",
+        "btnLan" : "Translation to english ",
+        "rota" : "Rota  ",
+        "flag" : "./us.svg"
     }
 }

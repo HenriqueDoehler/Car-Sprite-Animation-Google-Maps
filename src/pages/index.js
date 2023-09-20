@@ -28,25 +28,36 @@ export default function App() {
 
   return (
     <>
-      <div>{t("selecione")}</div>
-      <button type="button" onClick={handleChangeLanguage}>
-        change Language
-      </button>
-      <select onChange={handleCourseChange}>
-        {gpsData.courses.map((course, index) => {
-          const formattedDate = formatDate(course.start_at);
-          return (
-            <option key={index} value={index}>
-              {`Rota ${index + 1} - ${formattedDate}`}
-            </option>
-          );
-        })}
-      </select>
-      <Wrapper apiKey={apiKey} version="beta" libraries={["marker"]}>
-        <div className={styles.map}>
-          <MyMap className={styles.map} />
-        </div>
-      </Wrapper>
+      <div className={styles.header}>
+        <div className={styles.title}>{t("selecione")}</div>
+        <button
+          className={styles.languageButton}
+          type="button"
+          onClick={handleChangeLanguage}
+        >
+          {t("btnLan")}
+          <img src={t("flag")} />
+        </button>
+      </div>
+      <div className={styles.dropdownContainer}>
+        <select className={styles.dropdown} onChange={handleCourseChange}>
+          {gpsData.courses.map((course, index) => {
+            const formattedDate = formatDate(course.start_at);
+            return (
+              <option key={index} value={index}>
+                {`${t("rota")} ${index + 1} - ${formattedDate}`}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      <div className={styles.mapContainer}>
+        <Wrapper apiKey={apiKey} version="beta" libraries={["marker"]}>
+          <div className={styles.map}>
+            <MyMap className={styles.map} />
+          </div>
+        </Wrapper>
+      </div>
     </>
   );
 }

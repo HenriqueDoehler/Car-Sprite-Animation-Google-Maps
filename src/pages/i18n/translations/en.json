@@ -1,6 +1,9 @@
 {
     "translation": {
-        "selecione": "Select route"
+        "selecione": "Google Maps Location history",
+        "btnLan" : "Tradução  para Português ",
+         "rota" : "Route  ",
+         "flag" : "./brazil.svg"
       
         
     }
