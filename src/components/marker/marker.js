@@ -8,7 +8,6 @@ import { useGlobalState } from "../../pages/_app";
 export default function Marker({ map, position }) {
   const [data, setData] = useState(gpsData);
   const { rotationAngle } = useGlobalState();
-  console.log(rotationAngle);
 
   return (
     <>
