@@ -35,6 +35,7 @@ export function Sprite({ rotationAngle }) {
             scale={[100, 100, 100]}
             position={[0, 11.3, -45]}
             startFrame={frame}
+            endFrame={frame}
             autoPlay={true}
             loop={false}
             numberOfFrames={120}
