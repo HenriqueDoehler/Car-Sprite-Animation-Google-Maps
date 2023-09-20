@@ -1,5 +1,5 @@
 import "@/styles/globals.scss";
-import "@/pages/i18n";
+import "@/i18n/";
 
 import React, { createContext, useContext, useState } from "react";
 
