@@ -1,9 +1,20 @@
 import { SpriteAnimator } from "@react-three/drei";
 import React from "react";
+import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
-export function Sprite() {
+export function Sprite({ rotationAngle }) {
+  const [key, setKey] = useState(Math.random());
+
+  const [frame, setFrame] = useState(0);
+
+  useEffect(() => {
+    const newFrame = Math.floor((rotationAngle / 360) * 120);
+    setKey(Math.random() + Math.random());
+    setFrame(newFrame);
+  }, [rotationAngle]);
+
   return (
     <div style={{ width: "32px", height: "32px" }}>
       <Canvas
@@ -20,11 +31,12 @@ export function Sprite() {
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
           <SpriteAnimator
+            key={key}
             scale={[100, 100, 100]}
             position={[0, 11.3, -45]}
-            startFrame={0}
+            startFrame={frame}
             autoPlay={true}
-            loop={true}
+            loop={false}
             numberOfFrames={120}
             alphaTest={0.01}
             textureImageURL={"./cars.png"}

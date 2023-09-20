@@ -3,9 +3,12 @@ import gpsData from "@/DataGps/frontend_data_gps.json";
 import MarkerAdvanced from "@/components/marker/markerAdvanced";
 import { Sprite } from "../carSpriteAnimation/threeSpriteAnimator";
 import styles from "@/styles/Marker.module.scss";
+import { useGlobalState } from "../../pages/_app";
 
 export default function Marker({ map, position }) {
   const [data, setData] = useState(gpsData);
+  const { rotationAngle } = useGlobalState();
+  console.log(rotationAngle);
 
   return (
     <>
@@ -17,7 +20,7 @@ export default function Marker({ map, position }) {
           position={position}
         >
           <div className={styles.containerSprite}>
-            <Sprite />
+            <Sprite rotationAngle={rotationAngle} />
           </div>
         </MarkerAdvanced>
       ))}

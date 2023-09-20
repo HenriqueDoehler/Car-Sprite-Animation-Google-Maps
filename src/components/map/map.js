@@ -7,8 +7,10 @@ import Marker from "../marker/marker";
 const mapId = process.env.NEXT_PUBLIC_MAP_ID;
 
 export default function MyMap() {
+  // console.log(gpsData);
   const ref = useRef();
-  const { firstGpsPoint, selectedCourseIndex } = useGlobalState();
+  const { firstGpsPoint, selectedCourseIndex, setRotationAngle } =
+    useGlobalState();
   const [currentCoords, setCurrentCoords] = useState(firstGpsPoint);
   const [currentCoordsIndex, setCurrentCoordsIndex] = useState(0);
   const [map, setMap] = useState();
@@ -44,10 +46,12 @@ export default function MyMap() {
         });
         map.setCenter({ lat: coords.latitude, lng: coords.longitude });
         setCurrentCoordsIndex((prevIndex) => prevIndex + 1);
+
+        setRotationAngle(coords.direction);
       }
     }, 1000);
     return () => clearInterval(interval);
-  }, [map, selectedCourseIndex, currentCoordsIndex]);
+  }, [map, selectedCourseIndex, currentCoordsIndex, setRotationAngle]);
 
   return (
     <>
