@@ -12,6 +12,7 @@ export default function MyMap() {
     useGlobalState();
   const [currentCoords, setCurrentCoords] = useState(firstGpsPoint);
   const [currentCoordsIndex, setCurrentCoordsIndex] = useState(0);
+  const [polylineCoordinates, setPolylineCoordinates] = useState([]);
   const [map, setMap] = useState();
 
   const mapOptions = {
@@ -28,8 +29,20 @@ export default function MyMap() {
   }, [selectedCourseIndex]);
 
   useEffect(() => {
-    setMap(new window.google.maps.Map(ref.current, mapOptions));
-  }, []);
+    if (!map) {
+      setMap(new window.google.maps.Map(ref.current, mapOptions));
+    } else {
+      const Path = new window.google.maps.Polyline({
+        path: polylineCoordinates,
+        geodesic: true,
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+      });
+
+      Path.setMap(map);
+    }
+  }, [map, polylineCoordinates]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -45,7 +58,10 @@ export default function MyMap() {
         });
         map.setCenter({ lat: coords.latitude, lng: coords.longitude });
         setCurrentCoordsIndex((prevIndex) => prevIndex + 1);
-
+        setPolylineCoordinates((prevCoords) => [
+          ...prevCoords,
+          { lat: coords.latitude, lng: coords.longitude },
+        ]);
         setRotationAngle(coords.direction);
       }
     }, 1000);
