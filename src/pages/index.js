@@ -6,6 +6,7 @@ import MyMap from "@/components/map/map";
 import { formatDate } from "@/utils/utils";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import ThreeD from "@/components/3DTruckModel";
 
 const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
@@ -30,6 +31,7 @@ export default function App() {
     <>
       <div className={styles.header}>
         <div className={styles.title}>{t("selecione")}</div>
+        <ThreeD />
         <button
           className={styles.languageButton}
           type="button"
