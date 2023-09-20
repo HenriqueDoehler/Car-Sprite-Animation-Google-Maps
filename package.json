@@ -12,6 +12,7 @@
     "@googlemaps/react-wrapper": "^1.1.35",
     "@react-three/drei": "^9.84.1",
     "@react-three/fiber": "^8.14.2",
+    "@vercel/analytics": "^1.0.2",
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.1",
     "i18n": "^0.15.1",
