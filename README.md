@@ -39,6 +39,8 @@ link ativo temporariamente
 
 Funcionalidades
 
+o estilo do mapa pode ser alterado com um Map id https://developers.google.com/maps/documentation/get-map-id?hl=pt-br#javascript
+
 Seleção de Rota
 
 Na página principal, você pode selecionar a rota desejada através de um dropdown. Cada rota é associada a um conjunto de dados GPS.
