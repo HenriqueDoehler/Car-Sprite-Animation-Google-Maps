@@ -21,9 +21,9 @@ export default function Marker({ map, position, clickThreeDModel }) {
         >
           <div className={styles.containerSprite}>
             {showThreeDModel ? (
-              <ThreeD rotationAngle={rotationAngle} />
-            ) : (
               <Sprite rotationAngle={rotationAngle} />
+            ) : (
+              <ThreeD rotationAngle={rotationAngle} />
             )}
           </div>
         </MarkerAdvanced>
