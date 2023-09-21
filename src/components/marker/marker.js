@@ -4,10 +4,11 @@ import MarkerAdvanced from "@/components/marker/markerAdvanced";
 import { Sprite } from "../carSpriteAnimation/threeSpriteAnimator";
 import styles from "@/styles/Marker.module.scss";
 import { useGlobalState } from "../../pages/_app";
+import ThreeD from "../3DTruckModel";
 
-export default function Marker({ map, position }) {
+export default function Marker({ map, position, clickThreeDModel }) {
   const [data, setData] = useState(gpsData);
-  const { rotationAngle } = useGlobalState();
+  const { rotationAngle, showThreeDModel, set } = useGlobalState();
 
   return (
     <>
@@ -19,7 +20,11 @@ export default function Marker({ map, position }) {
           position={position}
         >
           <div className={styles.containerSprite}>
-            <Sprite rotationAngle={rotationAngle} />
+            {showThreeDModel ? (
+              <ThreeD rotationAngle={rotationAngle} />
+            ) : (
+              <Sprite rotationAngle={rotationAngle} />
+            )}
           </div>
         </MarkerAdvanced>
       ))}

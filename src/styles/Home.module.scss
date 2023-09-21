@@ -1,5 +1,5 @@
 .header {
-  background-color: #002855; // Azul da SoftTruck
+  background-color: #002855; 
   color: white;
   padding: 20px;
   display: flex;
@@ -12,7 +12,24 @@
   font-weight: bold;
 }
 
-.languageButton {
+.languageButton  {
+  
+  background-color: #005fcc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #004c99;
+  }
+}
+
+.threeDChangeBtn{
   background-color: #005fcc;
   display: flex;
   align-items: center;

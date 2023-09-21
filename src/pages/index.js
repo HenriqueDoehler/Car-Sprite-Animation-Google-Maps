@@ -16,7 +16,8 @@ export default function App() {
     i18n: { changeLanguage, language },
   } = useTranslation();
 
-  const { setSelectedCourseIndex } = useGlobalState();
+  const { setSelectedCourseIndex, showThreeDModel, setShowThreeDModel } =
+    useGlobalState();
   const [currentLanguage, setCurrentLanguage] = useState(language);
   const handleCourseChange = (e) => {
     setSelectedCourseIndex(e.target.value);
@@ -31,7 +32,12 @@ export default function App() {
     <>
       <div className={styles.header}>
         <div className={styles.title}>{t("selecione")}</div>
-        <ThreeD />
+        <button
+          className={styles.threeDChangeBtn}
+          onClick={() => setShowThreeDModel(!showThreeDModel)}
+        >
+          Alternar Modelo
+        </button>
         <button
           className={styles.languageButton}
           type="button"

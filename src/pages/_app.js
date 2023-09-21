@@ -14,6 +14,7 @@ export function GlobalStateProvider({ children }) {
   const [selectedCourseIndex, setSelectedCourseIndex] = useState(0);
   const [firstGpsPoint, setFirstGpsPoint] = useState();
   const [rotationAngle, setRotationAngle] = useState(0);
+  const [showThreeDModel, setShowThreeDModel] = useState(true);
 
   return (
     <GlobalStateContext.Provider
@@ -24,6 +25,8 @@ export function GlobalStateProvider({ children }) {
         setFirstGpsPoint,
         rotationAngle,
         setRotationAngle,
+        showThreeDModel,
+        setShowThreeDModel,
       }}
     >
       {children}

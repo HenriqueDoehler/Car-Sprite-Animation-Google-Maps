@@ -3,12 +3,12 @@ import React, { Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Model } from "@/components/3DTruckModel/TruckLowPoly";
+import styles from "@/styles/threeD.module.scss";
 
-export default function ThreeD() {
+export default function ThreeD({ rotationAngle }) {
   return (
-    <div className="canvas">
-      <Canvas camera={{ position: [0, 10, -20], fov: 45 }}>
-        <OrbitControls />
+    <div className={styles.canvas}>
+      <Canvas camera={{ position: [0, 15, -15], fov: 45 }}>
         <directionalLight color="blue" position={[-2, 2, 0]} intensity={1.5} />
         <directionalLight
           color="hotpink"
@@ -17,7 +17,7 @@ export default function ThreeD() {
         />
         <ambientLight intensity={3} position={[0, 0, 5]} />
         <Suspense>
-          <Model position={[0, 0, 0]} scale={3} />
+          <Model position={[0, 0, 0]} scale={3} rotationAngle={rotationAngle} />
         </Suspense>
       </Canvas>
     </div>
