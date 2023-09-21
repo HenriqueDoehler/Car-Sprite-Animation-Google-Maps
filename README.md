@@ -6,12 +6,16 @@ Este é um projeto feito em Next.js que utiliza a Google Maps API para mostrar r
 
 Tecnologias Utilizadas
 
-Next.js
-Google Maps API
-react-i18next
-SCSS
-react-three-fiber/drei
+Next.js,
+Google Maps API,
+react-i18next,
+SCSS,
+react-three-fiber/drei,
+
+
 Como Rodar o Projeto Localmente
+
+
 Pré-requisitos
 Node.js
 NPM
@@ -52,6 +56,8 @@ O botão no topo da página permite que você troque o idioma da interface entre
 Animação
 
 O projeto utiliza animações avançadas através do react-three-fiber/drei para mostrar um carro em sprite se movendo na rota selecionada.
+
+Notavelmente, o modelo 3D do caminhão "low poly" em formato GLB tem um tamanho de arquivo menor (532 KB) em comparação com a imagem sprite em PNG (807 KB). Isso demonstra a eficiência dos modelos 3D "low poly" em termos de utilização de recursos.
 
 Contribuições
 
