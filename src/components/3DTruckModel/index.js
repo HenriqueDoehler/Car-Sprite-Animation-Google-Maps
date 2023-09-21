@@ -8,7 +8,7 @@ import styles from "@/styles/threeD.module.scss";
 export default function ThreeD({ rotationAngle }) {
   return (
     <div className={styles.canvas}>
-      <Canvas camera={{ position: [0, 15, -15], fov: 45 }}>
+      <Canvas camera={{ position: [-90, 90, -5], fov: 45 }}>
         <directionalLight color="blue" position={[-2, 2, 0]} intensity={1.5} />
         <directionalLight
           color="hotpink"
@@ -17,7 +17,11 @@ export default function ThreeD({ rotationAngle }) {
         />
         <ambientLight intensity={3} position={[0, 0, 5]} />
         <Suspense>
-          <Model position={[0, 0, 0]} scale={3} rotationAngle={rotationAngle} />
+          <Model
+            position={[0, 0, 0]}
+            scale={20}
+            rotationAngle={rotationAngle}
+          />
         </Suspense>
       </Canvas>
     </div>

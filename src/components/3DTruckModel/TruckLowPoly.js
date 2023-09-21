@@ -1,16 +1,28 @@
 import * as THREE from "three";
 import React, { useRef, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export function Model({ rotationAngle, ...props }) {
   const mesh = useRef(null);
+  const targetRotation = useRef(0);
   console.log(rotationAngle);
 
   useEffect(() => {
     if (mesh.current) {
-      mesh.current.rotation.y = THREE.MathUtils.degToRad(rotationAngle);
+      targetRotation.current = THREE.MathUtils.degToRad(-rotationAngle);
     }
   }, [rotationAngle]);
+
+  useFrame(() => {
+    if (mesh.current) {
+      mesh.current.rotation.y = THREE.MathUtils.lerp(
+        mesh.current.rotation.y,
+        targetRotation.current,
+        0.1
+      );
+    }
+  });
 
   const { nodes, materials } = useGLTF("/truckLowPoly.glb");
   return (
